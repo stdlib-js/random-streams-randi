@@ -476,6 +476,24 @@ $ random-randi -n 10 --name mt19937 --seed 1234
 
 <!-- /.cli -->
 
+<!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
+
+<section class="related">
+
+* * *
+
+## See Also
+
+-   [`@stdlib/random/base/randi`][@stdlib/random/base/randi]: pseudorandom numbers having integer values.
+-   [`@stdlib/random/iter/randi`][@stdlib/random/iter/randi]: create an iterator for generating pseudorandom numbers having integer values.
+-   [`@stdlib/random/streams/randu`][@stdlib/random/streams/randu]: create a readable stream for generating uniformly distributed pseudorandom numbers between 0 and 1.
+
+</section>
+
+<!-- /.related -->
+
+<!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
 
 <section class="main-repo" >
 
@@ -542,6 +560,16 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 [@stdlib/random/base/minstd]: https://github.com/stdlib-js/random-base-minstd
 
 [@stdlib/random/base/minstd-shuffle]: https://github.com/stdlib-js/random-base-minstd-shuffle
+
+<!-- <related-links> -->
+
+[@stdlib/random/base/randi]: https://github.com/stdlib-js/random-base-randi
+
+[@stdlib/random/iter/randi]: https://github.com/stdlib-js/random-iter-randi
+
+[@stdlib/random/streams/randu]: https://github.com/stdlib-js/random-streams-randu
+
+<!-- </related-links> -->
 
 </section>
 
