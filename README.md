@@ -20,7 +20,7 @@ limitations under the License.
 
 # randi
 
-[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] [![dependencies][dependencies-image]][dependencies-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][test-image]][test-url] [![Coverage Status][coverage-image]][coverage-url] <!-- [![dependencies][dependencies-image]][dependencies-url] -->
 
 > Create a [readable stream][readable-stream] for generating pseudorandom numbers having integer values.
 
@@ -484,9 +484,9 @@ $ random-randi -n 10 --name mt19937 --seed 1234
 
 ## See Also
 
--   [`@stdlib/random/base/randi`][@stdlib/random/base/randi]: pseudorandom numbers having integer values.
--   [`@stdlib/random/iter/randi`][@stdlib/random/iter/randi]: create an iterator for generating pseudorandom numbers having integer values.
--   [`@stdlib/random/streams/randu`][@stdlib/random/streams/randu]: create a readable stream for generating uniformly distributed pseudorandom numbers between 0 and 1.
+-   <span class="package-name">[`@stdlib/random/base/randi`][@stdlib/random/base/randi]</span><span class="delimiter">: </span><span class="description">pseudorandom numbers having integer values.</span>
+-   <span class="package-name">[`@stdlib/random/iter/randi`][@stdlib/random/iter/randi]</span><span class="delimiter">: </span><span class="description">create an iterator for generating pseudorandom numbers having integer values.</span>
+-   <span class="package-name">[`@stdlib/random/streams/randu`][@stdlib/random/streams/randu]</span><span class="delimiter">: </span><span class="description">create a readable stream for generating uniformly distributed pseudorandom numbers between 0 and 1.</span>
 
 </section>
 
@@ -537,8 +537,12 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/random-streams-randi/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/random-streams-randi?branch=main
 
+<!--
+
 [dependencies-image]: https://img.shields.io/david/stdlib-js/random-streams-randi.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/random-streams-randi/main
+
+-->
 
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
