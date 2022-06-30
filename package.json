@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/random-streams-randi",
-  "version": "0.0.0",
+  "version": "0.0.7",
   "description": "Create a readable stream for generating pseudorandom numbers having integer values.",
   "license": "Apache-2.0",
   "author": {
