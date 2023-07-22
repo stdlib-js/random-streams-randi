@@ -24,38 +24,31 @@ limitations under the License.
 
 > Create a [readable stream][readable-stream] for generating pseudorandom numbers having integer values.
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/random-streams-randi
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+-   To use as a general utility for the command line, install the corresponding [CLI package][cli-section] globally.
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
-To use in Observable,
-
 ```javascript
-randomStream = require( 'https://cdn.jsdelivr.net/gh/stdlib-js/random-streams-randi@umd/browser.js' )
-```
-
-To vendor stdlib functionality and avoid installing dependency trees for Node.js, you can use the UMD server build:
-
-```javascript
-var randomStream = require( 'path/to/vendor/umd/random-streams-randi/index.js' )
-```
-
-To include the bundle in a webpage,
-
-```html
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-streams-randi@umd/browser.js"></script>
-```
-
-If no recognized module system is present, access bundle contents via the global scope:
-
-```html
-<script type="text/javascript">
-(function () {
-    window.randomStream;
-})();
-</script>
+var randomStream = require( '@stdlib/random-streams-randi' );
 ```
 
 <a name="random-stream"></a>
@@ -388,14 +381,9 @@ function onState( state ) {
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/streams-node-inspect-sink@umd/browser.js"></script>
-<script type="text/javascript" src="https://cdn.jsdelivr.net/gh/stdlib-js/random-streams-randi@umd/browser.js"></script>
-<script type="text/javascript">
-(function () {
+```javascript
+var inspectStream = require( '@stdlib/streams-node-inspect-sink' );
+var randomStream = require( '@stdlib/random-streams-randi' );
 
 function log( v ) {
     console.log( v.toString() );
@@ -414,11 +402,6 @@ opts = {
 var iStream = inspectStream( opts, log );
 
 stream.pipe( iStream );
-
-})();
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -427,7 +410,82 @@ stream.pipe( iStream );
 
 <!-- Section for describing a command-line interface. -->
 
+* * *
 
+<section class="cli">
+
+## CLI
+
+<section class="installation">
+
+## Installation
+
+To use as a general utility, install the CLI package globally
+
+```bash
+npm install -g @stdlib/random-streams-randi-cli
+```
+
+</section>
+<!-- CLI usage documentation. -->
+
+
+<section class="usage">
+
+### Usage
+
+```text
+Usage: random-randi [options]
+
+Options:
+
+  -h,  --help               Print this message.
+  -V,  --version            Print the package version.
+       --sep sep            Separator used to join streamed data. Default: '\n'.
+  -n,  --iter iterations    Number of pseudorandom numbers.
+       --name name          Pseudorandom number generator name. Default:
+                            'mt19937'.
+       --seed seed          Pseudorandom number generator seed.
+       --state filepath     Path to a file containing the pseudorandom number
+                            generator state.
+       --snapshot filepath  Output file path for saving the pseudorandom number
+                            generator state upon exit.
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- CLI usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+### Notes
+
+-   In accordance with POSIX convention, a trailing newline is **always** appended to generated output prior to exit.
+-   Specifying a "snapshot" file path is useful when wanting to resume pseudorandom number generation due to, e.g., a downstream failure in an analysis pipeline. Before exiting, the process will store the pseudorandom number generator state in a file specified according to a provided file path. Upon loading a snapshot (state), the process will generate pseudorandom numbers starting from the loaded state, thus avoiding having to seed and replay an entire analysis.
+
+</section>
+
+<!-- /.notes -->
+
+<!-- CLI usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```bash
+$ random-randi -n 10 --name mt19937 --seed 1234
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.cli -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -437,9 +495,9 @@ stream.pipe( iStream );
 
 ## See Also
 
--   <span class="package-name">[`@stdlib/random/base/randi`][@stdlib/random/base/randi]</span><span class="delimiter">: </span><span class="description">pseudorandom numbers having integer values.</span>
--   <span class="package-name">[`@stdlib/random/iter/randi`][@stdlib/random/iter/randi]</span><span class="delimiter">: </span><span class="description">create an iterator for generating pseudorandom numbers having integer values.</span>
--   <span class="package-name">[`@stdlib/random/streams/randu`][@stdlib/random/streams/randu]</span><span class="delimiter">: </span><span class="description">create a readable stream for generating uniformly distributed pseudorandom numbers between 0 and 1.</span>
+-   <span class="package-name">[`@stdlib/random-base/randi`][@stdlib/random/base/randi]</span><span class="delimiter">: </span><span class="description">pseudorandom numbers having integer values.</span>
+-   <span class="package-name">[`@stdlib/random-iter/randi`][@stdlib/random/iter/randi]</span><span class="delimiter">: </span><span class="description">create an iterator for generating pseudorandom numbers having integer values.</span>
+-   <span class="package-name">[`@stdlib/random-streams/randu`][@stdlib/random/streams/randu]</span><span class="delimiter">: </span><span class="description">create a readable stream for generating uniformly distributed pseudorandom numbers between 0 and 1.</span>
 
 </section>
 
@@ -498,11 +556,15 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 -->
 
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
-[chat-url]: https://gitter.im/stdlib-js/stdlib/
+[chat-url]: https://app.gitter.im/#/room/#stdlib-js_stdlib:gitter.im
 
 [stdlib]: https://github.com/stdlib-js/stdlib
 
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
+
+[cli-section]: https://github.com/stdlib-js/random-streams-randi#cli
+[cli-url]: https://github.com/stdlib-js/random-streams-randi/tree/cli
+[@stdlib/random-streams-randi]: https://github.com/stdlib-js/random-streams-randi/tree/main
 
 [umd]: https://github.com/umdjs/umd
 [es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
@@ -520,19 +582,19 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [readable-stream]: https://nodejs.org/api/stream.html
 
-[@stdlib/random/base/mt19937]: https://github.com/stdlib-js/random-base-mt19937/tree/umd
+[@stdlib/random/base/mt19937]: https://github.com/stdlib-js/random-base-mt19937
 
-[@stdlib/random/base/minstd]: https://github.com/stdlib-js/random-base-minstd/tree/umd
+[@stdlib/random/base/minstd]: https://github.com/stdlib-js/random-base-minstd
 
-[@stdlib/random/base/minstd-shuffle]: https://github.com/stdlib-js/random-base-minstd-shuffle/tree/umd
+[@stdlib/random/base/minstd-shuffle]: https://github.com/stdlib-js/random-base-minstd-shuffle
 
 <!-- <related-links> -->
 
-[@stdlib/random/base/randi]: https://github.com/stdlib-js/random-base-randi/tree/umd
+[@stdlib/random/base/randi]: https://github.com/stdlib-js/random-base-randi
 
-[@stdlib/random/iter/randi]: https://github.com/stdlib-js/random-iter-randi/tree/umd
+[@stdlib/random/iter/randi]: https://github.com/stdlib-js/random-iter-randi
 
-[@stdlib/random/streams/randu]: https://github.com/stdlib-js/random-streams-randu/tree/umd
+[@stdlib/random/streams/randu]: https://github.com/stdlib-js/random-streams-randu
 
 <!-- </related-links> -->
 
